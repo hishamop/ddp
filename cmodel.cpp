@@ -16,17 +16,6 @@ void CModel::add_element(elem_ptr t)
     m_elements.push_back(t);
 }
 
-//void CModel::add_nodeset(nset_ptr t)
-//{
-//    m_nset.push_back(t);
-//}
-
-//void CModel::add_elset(elset_ptr t)
-//{
-//    m_elemset.push_back(t);
-//}
-
-
 node_ptr CModel::get_node_ptr(int id)
 {
     assert(m_nodes.at(id-1)->getindex() == id);      // Make sure that correct node is returned.
