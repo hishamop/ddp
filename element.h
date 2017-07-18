@@ -45,6 +45,10 @@ protected:
 
     //PROTECTED
     //FUNCTIONS RELATED TO MAPPING.
+
+private:
+    element (element&);
+    element& operator=(const element&);
 };
 
 

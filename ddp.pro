@@ -25,7 +25,10 @@ SOURCES += main.cpp \
     node.cpp \
     nodeset.cpp \
     ipopt_solve.cpp \
-    solve.cpp
+    solve.cpp \
+    system.cpp \
+    obj_fun.cpp \
+    quad.cpp
 
 HEADERS += \
     auxil.h \
@@ -43,7 +46,10 @@ HEADERS += \
     nodeset.h \
     nlp.h \
     ipopt_solve.h \
-    solve.h
+    solve.h \
+    system.h \
+    obj_fun.h \
+    quad.h
 
 DISTFILES += \
     input.in

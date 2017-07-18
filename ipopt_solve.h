@@ -6,10 +6,10 @@
 
 using namespace Ipopt;
 
-class Ipopt_solve :public TNLP
+class Ipopt_solve :public nlp,public TNLP
 {
 public:
-    Ipopt_solve(nlp*);
+    Ipopt_solve(CModel*);
     ~Ipopt_solve();
 
 
