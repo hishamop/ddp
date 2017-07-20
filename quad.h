@@ -7,11 +7,11 @@ class quadrature
 {
 public:
     quadrature();
-    std::vector<double>& get_nodes() const
+    const std::vector<double>& get_nodes() const
     {
         return m_nodes;
     }
-    std::vector<double>& get_weight() const
+    const std::vector<double>& get_weight() const
     {
         return m_weight;
     }
