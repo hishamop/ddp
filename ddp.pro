@@ -12,12 +12,10 @@ INCLUDEPATH += $$PWD/../../CoinIpopt/_build/include
 DEPENDPATH += $$PWD/../../CoinIpopt/_build/include
 
 SOURCES += main.cpp \
-    boundary_cps4.cpp \
     boundary.cpp \
     cfileio.cpp \
     cmodel.cpp \
     cps4.cpp \
-    dof_handler.cpp \
     element.cpp \
     elset.cpp \
     load.cpp \
@@ -27,17 +25,22 @@ SOURCES += main.cpp \
     ipopt_solve.cpp \
     solve.cpp \
     system.cpp \
-    obj_fun.cpp \
-    quad.cpp
+    quad.cpp \
+    data_store.cpp \
+    material.cpp \
+    shapefn.cpp \
+    objval.cpp \
+    function.cpp \
+    dof.cpp \
+    face.cpp \
+    mapping.cpp
 
 HEADERS += \
     auxil.h \
-    boundary_cps4.h \
     boundary.h \
     cfileio.h \
     cps4.h \
     cmodel.h \
-    dof_handler.h \
     element_types.h \
     element.h \
     elset.h \
@@ -48,8 +51,17 @@ HEADERS += \
     ipopt_solve.h \
     solve.h \
     system.h \
-    obj_fun.h \
-    quad.h
+    quad.h \
+    data_store.h \
+    material.h \
+    shapefn.h \
+    objval.h \
+    function.h \
+    dof.h \
+    face.h \
+    mapping.h
 
 DISTFILES += \
-    input.in
+    input.in \
+    LICENSE \
+    README.md

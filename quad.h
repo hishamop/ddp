@@ -17,7 +17,7 @@ public:
     }
 
 private:
-    int m_pts{pts};
+    int                  m_pts{pts};
     std::vector<double>  m_nodes[pts];
     std::vector<double>  m_weight[pts];
     void set_gauss_val(const double*,const double*);

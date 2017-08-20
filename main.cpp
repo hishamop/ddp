@@ -12,7 +12,6 @@ int main()
     clock_t t1;
     t1 =clock();
     CModel model;
-
     {
         CFileio read("input.in",&model);
     }

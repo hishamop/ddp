@@ -7,16 +7,18 @@
 #include "node.h"
 #include "element.h"
 #include "cps4.h"
-#include "boundary_cps4.h"
 //#include "nodeset.h"
 //#include "elset.h"
 #include "boundary.h"
 #include "dof_handler.h"
+#include "material.h"
+
 
 //using elem_ptr= element*;
 using node_ptr =std::shared_ptr<node>;
 using elem_ptr = std::shared_ptr<element>;
 using boundary_ptr = std::shared_ptr<boundary>;
+using material_ptr = std::shared_ptr<material>;
 //using elset_ptr = std::shared_ptr<elset>;
 //using nset_ptr = std::shared_ptr<nodeset>;
 
@@ -32,6 +34,7 @@ public:
     CModel();
 
     //INTERFACE FUNCTIONS
+    void add_material(std::string,material_ptr);
     void set_dof();
 
     //INTERFACE DISPLAY
@@ -60,6 +63,7 @@ private:
     std::vector<elem_ptr>                            m_elements;
     std::map<std::string,std::vector<unsigned int>>  m_nodeset_map;
     std::map<std::string,std::vector<unsigned int>>      m_elset_map;
+    std::map<std::string,material_ptr>               m_material_map;
     std::map<unsigned int, boundary_ptr>             m_boundary_map;
     std::vector<boundary_ptr>                            m_boundary;
 //    std::vector<nset_ptr>       m_nset;

@@ -3,6 +3,7 @@
 #include <vector>
 #include "cmodel.h"
 #include "dof_handler.h"
+#include "data_store.h"
 class nlp
 {
 public:
@@ -29,6 +30,7 @@ protected:
     void initialize_elements_dofs();
 
     CModel*      m_model;
+    data_store*  m_data = NULL;    //to store intermediate data_values;
   //  std::vector<double>     m_var;   //total variables
     int m_Nconstr;               //No of constraints
     int m_Nvar;                  //No of variables

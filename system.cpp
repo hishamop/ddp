@@ -4,3 +4,8 @@ system::system()
 {
 
 }
+
+system::~system()
+{
+
+}

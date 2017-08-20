@@ -29,6 +29,7 @@ private:
     void read_fixity();
     void set_boundary();
     void read_boundary();
+    void read_material(std::string line);
 };
 
 #endif // CFILEIO_H

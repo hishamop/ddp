@@ -1,7 +1,8 @@
 #include "nlp.h"
 #include "element.h"
 #include "boundary.h"
-#include "obj_fun.h"
+#include "objval.h"
+#include "quad.h"
 #include <algorithm>
 using elem_ptr = std::shared_ptr<element>;
 
@@ -21,6 +22,8 @@ void nlp::set_info()
     // count no of variables in the problem and set initial variables.
 
     m_Nvar = 32*m_model->m_elements.size();
+
+    //Initial variables
     m_xi.resize(m_Nvar);     //every variable is initialised to zero.
 
 
@@ -31,9 +34,10 @@ double nlp::get_obj_val(const double *x )
     double obj_val=0.0;
 
     //obj_fun at each element is calculated and accumulated. used functor obj_fun.
-    obj_fun eval(*x);
+    quadrature<10> gauss_pts;
+    objval eval(*x,&gauss_pts);
     std::accumulate(m_model->m_elements.begin(),m_model->m_elements.end(),0.0,eval);
-
+    
 
 
 

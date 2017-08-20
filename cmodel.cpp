@@ -3,6 +3,9 @@
 #include <memory>
 CModel::CModel()
 {
+    //Material mapping for already defined material.
+//    material_ptr temp = std::make_shared<steel>;
+//    m_material_map["steel"] =  temp;
 
 }
 
@@ -94,6 +97,17 @@ void CModel::print_elem_count() const
     std::cout<<"Count of elements :    "<<m_elements.size()<<std::endl;
 }
 
+void CModel::add_boundary_element(boundary_ptr elem)
+{
+
+    m_boundary.push_back(elem);
+}
+
+void CModel::add_material(std::string name,material_ptr temp)
+{
+    m_material_map[name] = temp;
+}
+
 //void CModel::print_elset() const
 //{
 //    if(m_elemset.empty())
@@ -108,11 +122,6 @@ void CModel::print_elem_count() const
 //    }
 //}
 
-void CModel::add_boundary_element(boundary_ptr elem)
-{
-
-    m_boundary.push_back(elem);
-}
 
 
 //void CModel::print_boundary_elements() const

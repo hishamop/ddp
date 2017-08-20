@@ -61,6 +61,8 @@ CFileio::CFileio(std::string szFile, CModel *model)
 
                 read_dload();
             }
+
+
             if(upper.find("*BOUNDARY") != std::string::npos)
             {
 
@@ -321,6 +323,7 @@ void CFileio::set_boundary()
         flag = false;
     }
 }
+
 
 
 //void CFileio::read_boundary()
