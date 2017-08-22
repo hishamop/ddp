@@ -7,19 +7,12 @@ boundary::boundary()
     //m_traction.second.fill(0);    // Tractions initialised to zeros.
 }
 
-elem_ptr boundary::get_elem_ptr() const
-{
-    return m_boundary_element_ptr;
-}
 
-void boundary::set_load(load_ptr temp)
-{
-    m_loads.push_back(temp);
-}
-unsigned int boundary::get_index()
-{
-    return m_boundary_element_ptr->getindex();
-}
+//void boundary::set_load(load_ptr temp)
+//{
+  //  m_loads.push_back(temp);
+//}
+
 
 /*......................................................................................................
  .......................................................................................................*/
@@ -53,10 +46,10 @@ void boundary_cps4::set_boundary_faces()
     }
 }
 
-unsigned int boundary_cps4::getindex() const
-{
-    return m_boundary_element_ptr->getindex();
-}
+//unsigned int boundary_cps4::getindex() const
+//{
+//    return m_boundary_element_ptr->getindex();
+//}
 
 
 void boundary_cps4::assign_traction(side s)

@@ -3,6 +3,7 @@
 
 #include "ipopt_solve.h"
 #include "nlp.h"
+#include "cmodel.h"
 
 enum algo_type {IPOPT =1, SQP};
 
@@ -20,7 +21,7 @@ template<>
 class solve<IPOPT>
 {
 public:
-    solve(nlp*);
+    solve(CModel*);
 
 private:
     Ipopt_solve m_ipopt;

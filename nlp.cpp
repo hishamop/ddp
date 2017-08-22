@@ -34,9 +34,9 @@ double nlp::get_obj_val(const double *x )
     double obj_val=0.0;
 
     //obj_fun at each element is calculated and accumulated. used functor obj_fun.
-    quadrature<10> gauss_pts;
+    quadrature gauss_pts(10);
     objval eval(*x,&gauss_pts);
-    std::accumulate(m_model->m_elements.begin(),m_model->m_elements.end(),0.0,eval);
+   // std::accumulate(m_model->m_elements.begin(),m_model->m_elements.end(),0.0,eval);
     
 
 
@@ -45,10 +45,10 @@ double nlp::get_obj_val(const double *x )
     return obj_val;
 }
 
-void nlp::set_constraint_info()
+void nlp::set_constraint_info(double *x)
 {
 
-    initialize_elements_dof();
+ //   initialize_elements_dof();
     for(auto &iter:m_model->m_boundary)
     {
 

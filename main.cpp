@@ -4,7 +4,6 @@
 using namespace std;
 #include "cps4.h"
 #include "element.h"
-#include "dof_handler.h"
 #include "solve.h"
 #include<ctime>
 int main()
@@ -20,7 +19,7 @@ int main()
    // dof_handler dof(&model);
 //    model.print_boundary_elements();
     nlp problem(&model);
-    solve<IPOPT> solution(&problem);
+    solve<IPOPT> solution(&model);
     model.print_nodes();
     model.print_elems();
 

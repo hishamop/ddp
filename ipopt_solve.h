@@ -6,10 +6,10 @@
 
 using namespace Ipopt;
 
-class Ipopt_solve :public nlp,public TNLP
+class Ipopt_solve :public TNLP,public nlp
 {
 public:
-    Ipopt_solve(CModel*);
+    Ipopt_solve(CModel*m):nlp(m){}
     ~Ipopt_solve();
 
 
@@ -79,7 +79,6 @@ public:
     //  MyNLP();
     Ipopt_solve(const Ipopt_solve&);
     Ipopt_solve& operator=(const Ipopt_solve&);
-    nlp*  m_nlp;
 };
 
 #endif // IPOPT_SOLVE_H

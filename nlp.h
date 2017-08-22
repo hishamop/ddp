@@ -2,10 +2,12 @@
 #define NLP_H
 #include <vector>
 #include "cmodel.h"
-#include "dof_handler.h"
 #include "data_store.h"
+class ipopt_solve;
+
 class nlp
 {
+    friend class ipopt_solve;
 public:
     nlp(CModel*);
     ~nlp();

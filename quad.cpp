@@ -1,6 +1,5 @@
 #include "quad.h"
-template<int pts>
-quadrature<pts>::quadrature()
+quadrature::quadrature(int pts)
 {
     switch(pts)
     {
@@ -61,8 +60,7 @@ quadrature<pts>::quadrature()
 
 
 
-template<int pts>
-void quadrature<pts>::set_gauss_val(const double* x,const double* w)
+void quadrature::set_gauss_val(const double* x,const double* w)
 {
     for(int i=0; i<m_pts/2; i++)
     {
@@ -73,10 +71,4 @@ void quadrature<pts>::set_gauss_val(const double* x,const double* w)
     }
 }
 
-template class quadrature<2>;
-template class quadrature<4>;
-template class quadrature<6>;
-template class quadrature<8>;
-template class quadrature<10>;
-template class quadrature<12>;
-template class quadrature<14>;
+

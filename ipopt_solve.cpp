@@ -1,9 +1,5 @@
 #include "ipopt_solve.h"
 
-Ipopt_solve::Ipopt_solve(CModel *m):nlp(CModel *m)
-{
-
-}
 
 Ipopt_solve::~Ipopt_solve()
 {
@@ -120,5 +116,4 @@ void Ipopt_solve::finalize_solution(SolverReturn status,
                    const IpoptData* ip_data,
                    IpoptCalculatedQuantities* ip_cq)
 {
-    return true;
 }

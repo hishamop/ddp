@@ -1,8 +1,9 @@
 #ifndef SHAPEFN_H
 #define SHAPEFN_H
 #include "element.h"
+#include "memory"
 
-using elem_ptr = std::shared<element>;
+using elem_ptr = std::shared_ptr<element>;
 class ShapeFN
 {
 public:

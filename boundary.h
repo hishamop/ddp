@@ -19,11 +19,15 @@ class boundary
 {
 public:
     boundary();
-    unsigned int get_index();
-    void       set_load(load_ptr);
-    elem_ptr   get_elem_ptr() const;
+    unsigned int getindex()
+    {
+        return  m_boundary_element_ptr->getindex();
+    }
+
+   // void       set_load(load_ptr);
+   // elem_ptr   get_elem_ptr() const;
     virtual void       set_boundary_faces()                                                   =0;
-    virtual unsigned int        getindex()                                             const  =0;
+ //   virtual unsigned int        getindex()                                             const  =0;
     virtual void       assign_traction(side)                                                  =0;
     virtual void       assign_traction(unsigned int , orientation,traction,traction )         =0;
     virtual void       set_normal_pressure_on_face(side,traction)                             =0;
@@ -52,13 +56,14 @@ class boundary_cps4 : public boundary
 {
 public:
     boundary_cps4(elem_ptr);
+    ~boundary_cps4(){}
+    void              set_boundary_faces();
+   // unsigned int      getindex() const;
+    void              assign_traction(side);
+    void              assign_traction(unsigned int, orientation, traction, traction);
+    void              set_normal_pressure_on_face(side,traction);
     void              set_ForceBoundary();
     void              set_ForceBoundary_values();
-    void              set_boundary_faces();
-    unsigned int      getindex() const;
-    void              assign_traction(side);
-    void              set_normal_pressure_on_face(side,traction);
-    void              assign_traction(unsigned int, orientation, traction, traction);
 //    void              assign_fixity(unsigned int, orientation);
     friend bool       is_id_equal(int);
 };

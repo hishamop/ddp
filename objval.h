@@ -8,9 +8,9 @@ using quad_ptr = quadrature*;
 class objval
 {
 public:
-    objval(double* var,quad_ptr q):m_var(var),m_quad(q) {}
+    objval(const double& var,quad_ptr q):m_quad(q) {}
     double operator() (double cum, const elem_ptr element); //functor function
-    double obj_val() (const elem_ptr element)
+    double obj_val(const elem_ptr element)
     {
         unsigned int elem_id =element->getindex();
         // (elem_id x 32,elem_id x 32+23)  stress_dof.
@@ -27,8 +27,8 @@ public:
     }
 
 private:
+    objval(const objval&);
     double m_obj_val;
-    double*  m_var;
     quad_ptr m_quad;
 };
 

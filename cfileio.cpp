@@ -412,7 +412,7 @@ void CFileio::read_dload()
                 load_ptr temp = std::make_shared<Dload>(nface,pressure);
                 auto boundary = m_model->m_boundary_map[iter];
 
-                boundary->set_load(temp);
+                //boundary->set_load(temp);
                 boundary->set_normal_pressure_on_face(nface,pressure);
 //               m_model->m_boundary_map[iter]->set_normal_pressure_on_face(nface,pressure);
             }

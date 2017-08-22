@@ -2,11 +2,11 @@
 #define QUAD_H
 #include<vector>
 #include<iostream>
-template<int pts>
+
 class quadrature
 {
 public:
-    quadrature();
+    quadrature(int);
     const std::vector<double>& get_nodes() const
     {
         return m_nodes;
@@ -17,9 +17,9 @@ public:
     }
 
 private:
-    int                  m_pts{pts};
-    std::vector<double>  m_nodes[pts];
-    std::vector<double>  m_weight[pts];
+    int                  m_pts;
+    std::vector<double>  m_nodes;
+    std::vector<double>  m_weight;
     void set_gauss_val(const double*,const double*);
 };
 
