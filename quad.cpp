@@ -1,7 +1,8 @@
 #include "quad.h"
 quadrature::quadrature(int pts)
 {
-    switch(pts)
+    m_pts =pts;
+    switch(m_pts)
     {
     case 2:
     {

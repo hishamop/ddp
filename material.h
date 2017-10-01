@@ -7,7 +7,8 @@ class material
 {
 public:
     material();
-    virtual const std::vector<double>& get_strain_refernce()=0;
+    ~material();
+    virtual const std::vector<double> get_strain(const std::vector<double>&)=0;
 protected:
     std::string m_name;
 };
@@ -16,11 +17,12 @@ class steel:public material
 {
 public:
     steel();
-    const std::vector<double>& get_strain_refernce();
+    const std::vector<double> get_strain(const std::vector<double>& stress);
+
 
 protected:
-    double _elasticity{2e+05};
-    double _poisson{0.3};
+    double _E{2e+05};   //elasticity
+    double _n{0.3};     //poisson
 
 };
 

@@ -1,11 +1,13 @@
 #include <iostream>
+#include"cfileio.h"
 #include "cmodel.h"
-#include "cfileio.h"
-using namespace std;
-#include "cps4.h"
-#include "element.h"
+#include "ipopt_solve.h"
 #include "solve.h"
-#include<ctime>
+#include "nlp.h"
+using namespace std;
+
+
+
 int main()
 {
     clock_t t1;
@@ -17,13 +19,15 @@ int main()
     t1 =clock() - t1;
     cout<<t1<<endl;
    // dof_handler dof(&model);
-//    model.print_boundary_elements();
+    model.print_boundary_elements();
     nlp problem(&model);
     solve<IPOPT> solution(&model);
     model.print_nodes();
     model.print_elems();
 
 }
+
+
 
 //int main()
 //{

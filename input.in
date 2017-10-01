@@ -33,7 +33,7 @@
 *ELASTIC
  20000, 0.3
 
-*BOUNDARY
+*boundary
 FIX,1,2
 
 *STEP

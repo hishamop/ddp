@@ -63,13 +63,6 @@ CFileio::CFileio(std::string szFile, CModel *model)
             }
 
 
-            if(upper.find("*BOUNDARY") != std::string::npos)
-            {
-
-
-               // read_boundary();
-            }
-
 //            if(upper.find("*") != std::string::npos)
 //            {
 //             //   read_fixity();
@@ -278,7 +271,7 @@ void CFileio::read_nloads()
         if(str_id>>elem_id)
         {
             str_id>>c>>side>>c>>orientation>>c>>tr_n1>>c>>tr_n2;
-                std::cerr<<"Boundary edge not found";
+                std::cerr<<"boundary edge not found";
 
         }
 
@@ -410,10 +403,10 @@ void CFileio::read_dload()
             {
 
                 load_ptr temp = std::make_shared<Dload>(nface,pressure);
-                auto boundary = m_model->m_boundary_map[iter];
+                auto Boundary = m_model->m_boundary_map[iter];
 
                 //boundary->set_load(temp);
-                boundary->set_normal_pressure_on_face(nface,pressure);
+                Boundary->set_normal_pressure_on_face(nface,pressure);
 //               m_model->m_boundary_map[iter]->set_normal_pressure_on_face(nface,pressure);
             }
 

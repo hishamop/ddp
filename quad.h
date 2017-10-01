@@ -16,6 +16,11 @@ public:
         return m_weight;
     }
 
+    const int get_degree() const
+    {
+        return m_pts;
+    }
+
 private:
     int                  m_pts;
     std::vector<double>  m_nodes;

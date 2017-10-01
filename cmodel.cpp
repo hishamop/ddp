@@ -124,17 +124,17 @@ void CModel::add_material(std::string name,material_ptr temp)
 
 
 
-//void CModel::print_boundary_elements() const
-//{
-//    int i =1;
-//    std::cout<<"...............BOUNDARY ELEMENTS................\n";
-//    for(auto &iter:m_boundary)
-//    {
-//        if(i%5==0)
-//            std::cout<<"\n";
-//        std::cout<<iter->get_element_id()<<"\t";
-//        i++;
-//    }
+void CModel::print_boundary_elements() const
+{
+    int i =1;
+    std::cout<<"...............boundary ELEMENTS................\n";
+    for(auto &iter:m_boundary)
+    {
+        if(i%5==0)
+            std::cout<<"\n";
+        std::cout<<iter->getindex()<<"\t";
+        i++;
+    }
 
-//    std::cout<<"\n\n";
-//}
+    std::cout<<"\n\n";
+}

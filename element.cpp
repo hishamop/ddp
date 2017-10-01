@@ -35,9 +35,6 @@ node_ptr element::getnode(int i) const
     return m_ENode_ptrs.at(i-1);
 }
 
-std::vector<node_ptr>&         element::get_nodes()
-{
-    return m_ENode_ptrs;
-}
+
 
 

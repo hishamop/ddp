@@ -2,7 +2,6 @@
 #define NLP_H
 #include <vector>
 #include "cmodel.h"
-#include "data_store.h"
 class ipopt_solve;
 
 class nlp
@@ -32,13 +31,12 @@ protected:
     void initialize_elements_dofs();
 
     CModel*      m_model;
-    data_store*  m_data = NULL;    //to store intermediate data_values;
   //  std::vector<double>     m_var;   //total variables
     int m_Nconstr;               //No of constraints
     int m_Nvar;                  //No of variables
     int m_Nnz_jacobian;          //No of nonzero in jacobian
     int m_Nnz_hess_lagrangian;   //No of nonzero in hessian of lagrgangian
-    double m_obj_val;            //obj. function value
+//    double m_obj_val;            //obj. function value
     std::vector<double> m_xi;     //initial values
     std::vector<double> m_xi_lower_bound;
     std::vector<double> m_xi_upper_bound;

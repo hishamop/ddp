@@ -31,8 +31,8 @@ public:
     virtual void       assign_traction(side)                                                  =0;
     virtual void       assign_traction(unsigned int , orientation,traction,traction )         =0;
     virtual void       set_normal_pressure_on_face(side,traction)                             =0;
-    virtual void       set_ForceBoundary()                                                    =0;
-    virtual void       set_ForceBoundary_values()                                             =0;
+  //  virtual void       set_ForceBoundary()                                                    =0;
+ //   virtual void       set_ForceBoundary_values()                                             =0;
 
 protected:
     elem_ptr                                                m_boundary_element_ptr;     // pointer to boundary element.
@@ -62,11 +62,10 @@ public:
     void              assign_traction(side);
     void              assign_traction(unsigned int, orientation, traction, traction);
     void              set_normal_pressure_on_face(side,traction);
-    void              set_ForceBoundary();
-    void              set_ForceBoundary_values();
+  //  void              set_ForceBoundary();
+//    void              set_ForceBoundary_values();
 //    void              assign_fixity(unsigned int, orientation);
     friend bool       is_id_equal(int);
 };
-
 
 #endif // BOUNDARY_H

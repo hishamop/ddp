@@ -1,7 +1,6 @@
 #include "nlp.h"
 #include "element.h"
 #include "boundary.h"
-#include "objval.h"
 #include "quad.h"
 #include <algorithm>
 using elem_ptr = std::shared_ptr<element>;
@@ -34,13 +33,7 @@ double nlp::get_obj_val(const double *x )
     double obj_val=0.0;
 
     //obj_fun at each element is calculated and accumulated. used functor obj_fun.
-    quadrature gauss_pts(10);
-    objval eval(*x,&gauss_pts);
-   // std::accumulate(m_model->m_elements.begin(),m_model->m_elements.end(),0.0,eval);
-    
-
-
-
+    quadrature gauss_pts(10);    
 
     return obj_val;
 }
@@ -82,9 +75,23 @@ std::vector<double>& nlp::get_upper_bound()
 }
 
 
+int nlp::get_Nnz_hess_lagrangian()
+{
+    return 1;
+}
+
+std::vector<double> nlp::get_grad_fun(const double*)
+{
+    std::vector<double> grad_fun;
 
 
+    return grad_fun;
+}
 
 
-
+std::vector<double> nlp::get_constraints(const double*)
+{
+    std::vector<double> constraints;
+    return constraints;
+}
 

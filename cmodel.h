@@ -21,7 +21,7 @@ using material_ptr = std::shared_ptr<material>;
 //using elset_ptr = std::shared_ptr<elset>;
 //using nset_ptr = std::shared_ptr<nodeset>;
 
-class CFileio;
+//class CFileio;
 class nlp;
 class CModel
 {

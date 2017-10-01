@@ -23,6 +23,17 @@ public:
     node(int id,float x,float y);
     node(int id,float x, float y, float z);
     ~node();
+
+    const double x()
+    {
+        return m_xcord;
+    }
+
+    const double y()
+    {
+        return m_ycord;
+    }
+
     void set_dof(int nStsDof, int nDispDof);
     std::vector<double> &get_disp_dof_reference();
     std::vector<double>& get_stress_dof_reference();
