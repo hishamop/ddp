@@ -2,10 +2,7 @@
 #include <cassert>
 #include<material.h>
 #include <algorithm>
-#include<eigen3/Eigen/Dense>
-using namespace Eigen;
 using quad_ptr = std::shared_ptr<quadrature>;
-using material_ptr = std::shared_ptr<material>;
 cps4::cps4(int id, std::vector<node_ptr> nodes)
 {
     m_type =CPS4;
@@ -181,32 +178,49 @@ unsigned int cps4::getindex() const
 
 //}
 
-//double cps4::get_objval(const double *x, material_ptr material,quad_ptr quad) const
-//{
-//    double objval;
-//    Matrix<double,24,3> _bsmat;
-//    _pts = quad->get_degree();
-//    for (auto& sval:m_quad->get_nodes())
-//    {
-//        for(auto& tval:mquad->get_nodes())
-//        {
+double cps4::get_objval(const std::vector<double>& x, material_ptr material, FEval &val) const
+{
 
-//            std::vector<double> stress_vec =this->get_stress_vector();
-//            std::vector<double> strain=material->get_strain(stress_vec);
+    double objval;
+    auto bsmat = val.get_bsmat();
+    //using the cached bsmat matrices.
+    for (auto iter:bsmat)
+    {
+        
+    }
 
-//        }
-//    }
+    return objval;
+
+}
+
+std::vector<double> cps4::get_standard_stress_dof(const std::vector<double> &var_list,double _s, double _t)
+{
+    std::vector<double> dofvec(24);
+    unsigned int  _first =  (m_elem_id-1)*24;
+    unsigned int  _last  =  (m_elem_id)*24-1;
+
+    for (unsigned int iter=0; iter<24; iter++ )
+    {
+        dofvec.push_back(var_list.at(_first + 6*iter));
+
+        dphi_ds =
+        dofvec.push_back();
 
 
+    }
 
 
+    using Iterator = std::vector<double>::const_iterator;
+    size_t first_dof = var_list.begin() + (m_elem_id-1)*24;
+    size_t last_dof  = var_list.begin() + (m_elem_id)*24-1;
 
-//    return objval;
+    assert();
+    for(iterator iter =first_dof; iter != last_dof ; ++iter)
+    {
 
-//}
 
-
-
+    }
+}
 
 
 

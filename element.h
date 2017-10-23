@@ -1,20 +1,22 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <vector>
 #include <utility>
+#include<memory>
+#include<vector>
 #include <iostream>
 #include "node.h"
 #include "material.h"
-#include <memory>
-#include <quad.h>
-#include<eigen3/Eigen/Dense>
-using namespace Eigen;
+#include "enums.h"
+#include "feval.h"
+#include "quad.h"
+#include "common.h"
 
-enum element_type {CPS4=1,CPS8};   //Element types are equated into numbers.
-enum cell_type {unit_cell=1,actual_cell};
+class FEval;
 using node_ptr=std::shared_ptr<node>;
 using face = std::vector<node_ptr> ;
+using material_ptr = std::shared_ptr<material>;
+
 
 class element
 {
@@ -55,6 +57,8 @@ public:
     virtual int                    elements_shared_by_face(unsigned int) const =0;
     virtual int                    get_dof_count()                       const =0;
     virtual void                   set_node_dof()                       =0;
+    virtual double                 get_objval(const std::vector<double>&, material_ptr,
+                                           FEval&)    const =0;
 //    virtual std::vector<double>    get_stress_vector(std::vector<double> dof
  //                                                    )                   const =0;
  //   virtual double                 get_objval(const double* x,

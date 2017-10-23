@@ -43,9 +43,13 @@ HEADERS += \
     cmodel.h \
     cfileio.h \
     boundary.h \
-    auxil.h
+    auxil.h \
+    enums.h \
+    common.h \
+    options.h
 
 DISTFILES += \
     input.in \
     LICENSE \
-    README.md
+    README.md \
+    Doxyfile

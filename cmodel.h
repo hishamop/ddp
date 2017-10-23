@@ -56,6 +56,11 @@ public:
     node_ptr                    get_node_ptr(int);
     node_ptr                    get_node_ptr_with_count(int);
 
+    const std::vector<elem_ptr>& get_element_vector() const
+    {
+        return m_elements;
+    }
+
 private:
     std::vector<node_ptr>                            m_nodes;
 //    std::vector<node>                                m_nodes;

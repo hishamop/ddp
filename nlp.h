@@ -1,13 +1,15 @@
 #ifndef NLP_H
 #define NLP_H
 #include <vector>
+#include "common.h"
+#include "options.h"
 #include "cmodel.h"
 class ipopt_solve;
-
-class nlp
+class nlp:public Options
 {
     friend class ipopt_solve;
 public:
+
     nlp(CModel*);
     ~nlp();
     void initialise_dof();

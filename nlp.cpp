@@ -2,9 +2,11 @@
 #include "element.h"
 #include "boundary.h"
 #include "quad.h"
+#include "feval.h"
+#include "material.h"
 #include <algorithm>
 using elem_ptr = std::shared_ptr<element>;
-
+using material_ptr =std::shared_ptr<material>;
 
 nlp::nlp(CModel* m)
 {
@@ -28,13 +30,22 @@ void nlp::set_info()
 
 }
 
-double nlp::get_obj_val(const double *x )
+double nlp::get_obj_val(const double* x )
 {
+    std::vector<double> _var(m_Nvar);
+    for(int i=0; i<m_Nvar; i++)
+    {
+        _var.push_back(x[i]);
+    }
     double obj_val=0.0;
-
+    FEval precomputed(CPS4,m_gauss_degree);
+    material_ptr matrl =std::make_shared<steel>();
     //obj_fun at each element is calculated and accumulated. used functor obj_fun.
-    quadrature gauss_pts(10);    
-
+    for(auto const & iter: m_model->m_elements)
+    {
+        std::vector<double> stress_dof = iter->get_standard_stress_dof(_var);
+        obj_val += iter->get_objval(_var,matrl,precomputed);
+    }
     return obj_val;
 }
 
